@@ -36,4 +36,4 @@ Pull requests are welcome. Please try to match the current code formatting.
 
 ## Maintainer
 
-[Tim Brugman](https://timbr.dev/)
+[Tim Brugman](https://github.com/Brugman)
