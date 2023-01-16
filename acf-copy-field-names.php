@@ -34,9 +34,9 @@ add_action( 'admin_enqueue_scripts', function () {
     // register
     wp_register_script(
         'clipboardjs', // name
-        plugin_dir_url( __FILE__ ).'vendor/clipboard.min.js', // url
+        plugin_dir_url( __FILE__ ).'clipboard.min.js', // url
         ['jquery'], // deps
-        '2.0.4', // ver
+        '2.0.11', // ver
         true // in_footer
     );
     wp_register_script(
