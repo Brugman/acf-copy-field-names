@@ -16,6 +16,7 @@ if ( !defined( 'ABSPATH' ) )
 function acfn_should_load()
 {
     $load = false;
+
     global $pagenow;
     if ( $pagenow == 'post.php' && $_GET['action'] == 'edit' )
     {
@@ -23,6 +24,7 @@ function acfn_should_load()
         if ( isset( $post ) && $post->post_type == 'acf-field-group' )
             $load = true;
     }
+
     return $load;
 }
 
@@ -47,25 +49,5 @@ add_action( 'admin_enqueue_scripts', function () {
     // enqueue
     wp_enqueue_script( 'clipboardjs' );
     wp_enqueue_script( 'acf-copy-field-names' );
-});
-
-function acf_copy_field_names_meta_box( $post )
-{
-?>
-<p><a href="#" class="js-acf-copy-field-names button button-secondary button-large"><?php _e( 'Copy all fields names' ); ?></a></p>
-<?php
-}
-
-add_action( 'add_meta_boxes_acf-field-group', function ( $post ) {
-    if ( !acfn_should_load() )
-        return;
-    add_meta_box(
-        'acf-copy-field-names-div',
-        __( 'Copy Field Names' ),
-        'acf_copy_field_names_meta_box',
-        null,
-        'side',
-        'default'
-    );
 });
 
