@@ -16,17 +16,19 @@ define( 'ACFN_VERSION', '2.0.0' );
 
 function acfn_should_load()
 {
-    $load = false;
-
     global $pagenow;
-    if ( $pagenow == 'post.php' && $_GET['action'] == 'edit' )
-    {
-        global $post;
-        if ( isset( $post ) && $post->post_type == 'acf-field-group' )
-            $load = true;
-    }
 
-    return $load;
+    $page_is_edit_fg = ( $pagenow == 'post.php' && ( $_GET['action'] ?? false ) == 'edit' );
+    $page_is_make_fg = ( $pagenow == 'post-new.php' && ( $_GET['post_type'] ?? false ) == 'acf-field-group' );
+
+    if ( !$page_is_edit_fg && !$page_is_make_fg )
+        return false;
+
+    global $post;
+    if ( !isset( $post ) || $post->post_type != 'acf-field-group' )
+        return false;
+
+    return true;
 }
 
 add_action( 'admin_enqueue_scripts', function () {
