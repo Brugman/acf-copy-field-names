@@ -3,7 +3,7 @@
 /**
  * Plugin Name: ACF Copy Field Names
  * Description: Adds a button to the side of the Field Group Editor to copy all field names.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Plugin URI: https://github.com/Brugman/acf-copy-field-names
  * Author: Tim Brugman
  * Author URI: https://timbr.dev/
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ACFN_VERSION', '2.0.0' );
+define( 'ACFN_VERSION', '2.0.1' );
 
 function acfn_should_load()
 {
