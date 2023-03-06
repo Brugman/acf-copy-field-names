@@ -12,6 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+define( 'ACFN_VERSION', '2.0.0' );
 
 function acfn_should_load()
 {
@@ -43,7 +44,7 @@ add_action( 'admin_enqueue_scripts', function () {
         'acf-copy-field-names', // name
         plugin_dir_url( __FILE__ ).'acf-copy-field-names.js', // url
         ['clipboardjs'], // deps
-        '2.0.0', // ver
+        ACFN_VERSION, // ver
         true // in_footer
     );
     // enqueue
