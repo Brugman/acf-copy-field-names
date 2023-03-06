@@ -11,12 +11,11 @@
     }
 
     // create button
-    let btn_wrapper = document.getElementById('submitpost');
-    let acfn_btn = document.createElement('a');
-    acfn_btn.href = "#";
+    const acfn_btn = document.createElement('a');
+    acfn_btn.href = "javascript:;";
     acfn_btn.classList.add('acf-btn', 'acf-btn-secondary', 'js-copy-field-names');
     acfn_btn.textContent = "Copy Field Names";
-    btn_wrapper.prepend( acfn_btn );
+    document.getElementById('submitpost')?.prepend( acfn_btn );
 
     // on click copy to clipboard
     new ClipboardJS( acfn_btn, {
