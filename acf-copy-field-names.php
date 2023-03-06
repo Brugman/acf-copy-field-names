@@ -10,8 +10,8 @@
  * Text Domain: acf-copy-field-names
  */
 
-if ( !defined( 'ABSPATH' ) )
-    exit;
+defined( 'ABSPATH' ) || exit;
+
 
 function acfn_should_load()
 {
