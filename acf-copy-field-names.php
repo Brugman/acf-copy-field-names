@@ -32,17 +32,19 @@ function acfn_should_load()
 add_action( 'admin_enqueue_scripts', function () {
     if ( !acfn_should_load() )
         return;
+
+    $plugin_dir_url = plugin_dir_url( __FILE__ );
     // register
     wp_register_script(
         'clipboardjs', // name
-        plugin_dir_url( __FILE__ ).'clipboard.min.js', // url
+        $plugin_dir_url.'clipboard.min.js', // url
         [], // deps
         '2.0.11', // ver
         true // in_footer
     );
     wp_register_script(
         'acf-copy-field-names', // name
-        plugin_dir_url( __FILE__ ).'acf-copy-field-names.js', // url
+        $plugin_dir_url.'acf-copy-field-names.js', // url
         ['clipboardjs'], // deps
         ACFN_VERSION, // ver
         true // in_footer
